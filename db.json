@@ -1,0 +1,29 @@
+{
+  "employee": [
+    {
+      "empname": "Son",
+      "email": "sonam@example.com",
+      "id": "1"
+    },
+    {
+      "empname": "Sonali",
+      "email": "sonali@gs.com",
+      "id": "5"
+    },
+    {
+      "empname": "Demo1",
+      "email": "demo!@gmal.com",
+      "id": "6"
+    },
+    {
+      "empname": "Rajesh",
+      "email": "raj@gmail.com",
+      "id": "8"
+    },
+    {
+      "id": "7332",
+      "empname": "Rutuja",
+      "email": "jrutu522@gmail.com"
+    }
+  ]
+}
