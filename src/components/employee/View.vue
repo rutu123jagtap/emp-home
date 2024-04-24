@@ -6,7 +6,7 @@ const { employeeData, error, getSingleEmployee } = useEmployee();
 const route = useRoute();
 onMounted(() => {
   getSingleEmployee(route.params.id);
-});
+})
 </script>
 
 <template>
