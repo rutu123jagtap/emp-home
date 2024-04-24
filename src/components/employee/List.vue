@@ -3,11 +3,13 @@ import {
   EyeIcon,
   PencilIcon,
   TrashIcon,
-  UserPlusIcon,
+  UserPlusIcon
 } from "@heroicons/vue/24/solid";
 import { onMounted } from "vue";
 import { RouterLink } from "vue-router";
 import useEmployee from "../../composables/employeeApi";
+import router from "../../router";
+// const router = useRouter()
 
 const {
   employeeData,
@@ -17,7 +19,7 @@ const {
   getAllEmployee,
   destroyEmployee,
 } = useEmployee();
-onMounted(getAllEmployee);
+
 
 const deleteEmployee = async (id) => {
   if (!window.confirm("Are you sure ?")) {
@@ -26,6 +28,15 @@ const deleteEmployee = async (id) => {
   await destroyEmployee(id);
   await getAllEmployee();
 };
+
+onMounted(() => {
+  let user = localStorage.getItem('user.info');
+  if (!user) {
+    router.push({ name: 'SignUp' });
+  }
+});
+
+onMounted(getAllEmployee);
 </script>
 
 <template>
@@ -98,5 +109,6 @@ const deleteEmployee = async (id) => {
     </div>
   </div>
 </template>
+
 
 <style scoped></style>

@@ -1,29 +1,28 @@
 {
   "employee": [
     {
-      "empname": "Son",
-      "email": "sonam@example.com",
-      "id": "1"
-    },
-    {
       "empname": "Sonali",
       "email": "sonali@gs.com",
-      "id": "5"
+      "id": "5",
+      "is_deleted": 0
     },
     {
-      "empname": "Demo1",
-      "email": "demo!@gmal.com",
-      "id": "6"
+      "empname": "Son",
+      "email": "sonali@gs.com",
+      "id": "8",
+      "is_deleted": 1
     },
     {
-      "empname": "Rajesh",
-      "email": "raj@gmail.com",
-      "id": "8"
+      "empname": "S",
+      "email": "sonali@gs.com",
+      "id": "7",
+      "is_deleted": 1
     },
     {
-      "id": "7332",
-      "empname": "Rutuja",
-      "email": "jrutu522@gmail.com"
+      "empname": "So",
+      "email": "sonali@gs.com",
+      "id": "4",
+      "is_deleted": 1
     }
   ]
 }

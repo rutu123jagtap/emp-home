@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import List from '../components/employee/List.vue'
-import Add from '../components/employee/Add.vue'
-import View from '../components/employee/View.vue'
-import Edit from '../components/employee/Edit.vue'
-import NotFound from '../views/NotFound.vue'
+import List from '../components/employee/List.vue';
+import Add from '../components/employee/Add.vue';
+import View from '../components/employee/View.vue';
+import Edit from '../components/employee/Edit.vue';
+import NotFound from '../views/NotFound.vue';
+import SignUp from '../components/employee/SignUp.vue';
+import Login from '../components/employee/Login.vue';
+
 
 const routes = [
     {
@@ -31,6 +34,17 @@ const routes = [
       name: 'NotFound',
       component: NotFound
     },
+    ,
+  {
+    name: 'SignUp',
+    component: SignUp,
+    path:'/sign-up'
+  },
+  {
+    name: 'Login',
+    component: Login,
+    path:'/login'
+  }
   ]
   
   const router = createRouter({

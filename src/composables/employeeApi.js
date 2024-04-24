@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 
 export default function useEmployee() {
-  const url = "http://localhost:3333/employee/"
+  const url = "http://localhost:4000/employee/"
   const employeeData = ref([])
   const error = ref(null)
   const statusCode = ref(null)
@@ -12,7 +12,7 @@ export default function useEmployee() {
     employeeData.value = []
     error.value = null
     try {
-      const res = await axios(url)
+      const res = await axios(`${url}?is_deleted=0`)
       // console.log(res.data)
       employeeData.value = res.data
     } catch (err) {
@@ -81,10 +81,13 @@ export default function useEmployee() {
     error.value = null
     try {
       const config = {
-        method: 'DELETE',
+        method: 'PATCH',
         url: url + id,
         headers: {
           'Content-Type': 'application/json'
+        },
+        data:{
+          is_deleted: 1
         }
       }
       const res = await axios(config)
