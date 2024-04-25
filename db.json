@@ -1,28 +1,37 @@
 {
   "employee": [
     {
-      "empname": "Sonali",
-      "email": "sonali@gs.com",
-      "id": "5",
-      "is_deleted": 0
+      "id": "2c04",
+      "empname": "Ru",
+      "email": "jrutu522@gmail.com",
+      "eid": "4567",
+      "empphone": "9096966366",
+      "is_deleted": 0,
+      "added_by": "9728",
+      "admin_name": "b",
+      "created_at": "2024-04-25T10:21:55.043Z"
     },
     {
-      "empname": "Son",
-      "email": "sonali@gs.com",
-      "id": "8",
-      "is_deleted": 1
+      "id": "f036",
+      "empname": "fxb",
+      "email": "a@gmail.com",
+      "eid": "sdfx",
+      "empphone": "9096967890",
+      "is_deleted": 0,
+      "added_by": "9728",
+      "admin_name": "b",
+      "created_at": "2024-04-25T14:59:05.725Z"
     },
     {
-      "empname": "S",
-      "email": "sonali@gs.com",
-      "id": "7",
-      "is_deleted": 1
-    },
-    {
-      "empname": "So",
-      "email": "sonali@gs.com",
-      "id": "4",
-      "is_deleted": 1
+      "id": "2e1f",
+      "empname": "fxb",
+      "email": "a@gmail.com",
+      "eid": "6t",
+      "empphone": "9096967890",
+      "is_deleted": 0,
+      "added_by": "9728",
+      "admin_name": "b",
+      "created_at": "2024-04-25T14:59:14.756Z"
     }
   ]
 }

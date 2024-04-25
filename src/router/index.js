@@ -12,38 +12,44 @@ const routes = [
     {
       path: '/',
       name: 'list',
-      component: List
+      component: List,
+      meta: { showNavbar: true }
     },
     {
       path: '/add',
       name: 'add',
-      component: Add
+      component: Add,
+      meta: { showNavbar: true }
     },
     {
       path: '/view/:id',
       name: 'view',
-      component: View
+      component: View,
+      meta: { showNavbar: true }
     },
     {
       path: '/edit/:id',
       name: 'edit',
-      component: Edit
+      component: Edit,
+      meta: { showNavbar: true }
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: NotFound
+      component: NotFound,
     },
     ,
   {
     name: 'SignUp',
     component: SignUp,
-    path:'/sign-up'
+    path:'/sign-up',
+    meta: { showNavbar: false }
   },
   {
     name: 'Login',
     component: Login,
-    path:'/login'
+    path:'/login',
+    meta: { showNavbar: false }
   }
   ]
   

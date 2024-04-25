@@ -1,51 +1,47 @@
 <template>
-<img class="logo" src="../assets/th.jpg" />
-<h1>Login</h1>
-<div class="login">
-    <input type="text" v-model="email" placeholder="Enter Email:">
-    <input type="text" v-model="password" placeholder="Enter Password:">
-    <button v-on:click="login">Login</button>
-    <p>
-        <router-link to="/sign-up">SignUp</router-link>
-    </p>
-
-    <p :style="{ visibility: errorMessageVisibility }">Incorrect email or password.</p>
-
-
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-lg-4">
+        <div class="d-flex flex-column align-items-center mb-4">
+            <img class="logo mb-4" src="C:\Users\rutuja.jagtap\vue3-emp\src\assets\logo.jpg" />
+            <h1 class="login-title mb-4">Login</h1>
+        </div>
+        <div class="login">
+            <div class="mb-3">
+                <input type="text" class="form-control" v-model="email" placeholder="Enter Email">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" v-model="password" placeholder="Enter Password">
+            </div>
+            <div class="mb-3">
+                <button @click="login" class="btn btn-primary">Login</button>
+            </div>
+            <p class="error-message" :class="{ visible: errorMessageVisibility }">Incorrect email or password.</p>
+            <p>Don't have an account? <router-link to="/sign-up" class="signup-link">Sign Up</router-link>
+            </p>
+        </div>
+    </div>
 </div>
 </template>
 
+  
 <script>
-import axios from 'axios'
+import axios from 'axios';
+
 export default {
     name: 'Login',
     data() {
         return {
             email: '',
             password: '',
-            errorMessageVisibility: 'hidden'
-        }
+            errorMessageVisibility: false
+        };
     },
     methods: {
         async login() {
             try {
-                const result = await axios.get(
-                    `http://localhost:3030/users`
-                )
+                const result = await axios.get(`http://localhost:3030/users`);
 
                 if (result.status == 200 && result.data.length > 0) {
-
-                    // console.log(result.data[0]['email']);
-                    // if(this.email == result.data[0]['email'] && this.password == result.data[0]['password']){
-                    //     localStorage.setItem("user.info", JSON.stringify(result.data[0]))
-                    //     this.$router.push({
-                    //         name: 'list'
-                    //     });
-                    // }
-                    // else{
-                    //     console.log('Error');
-                    // }
-
                     const user = result.data.find(user => user.email === this.email && user.password === this.password);
                     if (user) {
                         localStorage.setItem("user.info", JSON.stringify(user));
@@ -53,15 +49,12 @@ export default {
                             name: 'list'
                         });
                     } else {
-
-                        this.errorMessageVisibility = 'visible';
-                        console.log('Incorrect email or password.');
+                        this.errorMessageVisibility = true;
                     }
-
                 }
 
             } catch (error) {
-                this.errorMessageVisibility = 'visible';
+                this.errorMessageVisibility = true;
             }
         }
     },
@@ -73,33 +66,33 @@ export default {
             });
         }
     }
-
-}
+};
 </script>
 
+  
 <style scoped>
 .logo {
-    width: 70px;
-    margin: 0%;
+    width: 80px;
 }
 
-.register input {
-    width: 300px;
-    height: 40px;
-    padding-left: 20px;
-    display: block;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid skyblue;
+.login-title {
+  font-size: 28px;
+  color: #333;
 }
 
-.register button {
-    width: 320px;
-    height: 40px;
-    border: 1px solid skyblue;
-    color: #fff;
-    background-color: skyblue;
-    cursor: pointer
+.login {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    visibility: hidden;
+}
+
+.signup-link {
+    color: #007bff;
+}
+.error-message.visible {
+    visibility: visible;
 }
 </style>

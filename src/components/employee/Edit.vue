@@ -16,9 +16,16 @@ function handleUpdateEmployeeForm() {
 
 <template>
   <div class="shadow-md pb-6">
-    <div class="bg-indigo-600 p-4">
+    <!-- <div class="bg-indigo-600 p-4">
       <h1 class="text-3xl font-bold text-center text-white">Edit Employee</h1>
-    </div>
+    </div> -->
+    <div class="heading">
+        <p>
+          Add Employee
+        </p>
+      </div>
+
+      <div class="my-container mx-32px 25px px-4 py-8">
     <div
       class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg font-medium"
       role="alert"
@@ -101,6 +108,23 @@ function handleUpdateEmployeeForm() {
       Employee Updated Successfully
     </div>
   </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.heading{
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 10vh;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+}
+.my-container {
+  max-width: 5xl;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: #ebe9e9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+} 
+</style>
