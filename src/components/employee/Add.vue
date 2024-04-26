@@ -16,8 +16,8 @@ const validatePhoneNumber = () => {
   }
 };
 const handleAddEmployeeForm = async () => {
-  validatePhoneNumber(); // validate phone number before form submission
-  if (!error.value) { // only submit the form if there's no error
+  validatePhoneNumber(); 
+  if (!error.value) { 
     await createEmployee(formData);
     if (statusCode.value === 201) {
       document.getElementById("AddEmployeeForm").reset();
@@ -111,7 +111,7 @@ const handleAddEmployeeForm = async () => {
       <div class="m-8 flex justify-center">
         <button
           type="submit"
-          class="bg-purple-700 text-white font-medium py-2 rounded-md px-6 hover:bg-purple-800 mr-6"
+          class="bg-blue-600 text-white font-medium py-2 rounded-md px-6 hover:bg-blue-600 mr-6"
         >
           Add
         </button>
@@ -119,7 +119,7 @@ const handleAddEmployeeForm = async () => {
         <RouterLink :to="{ name: 'list' }">
           <button
             type="button"
-            class="bg-emerald-700 text-white font-medium p-2 rounded-md hover:bg-emerald-800"
+            class="bg-blue-600 text-white font-medium p-2 rounded-md hover:bg-blue-600"
           >
             Back to Home
           </button>
@@ -134,22 +134,21 @@ const handleAddEmployeeForm = async () => {
       Oops! Error encountered: {{ error.message }}
     </div>
     <div
-      class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg font-medium"
+      class="p-4 mb-4 text-sm text-green-900 bg-red-100 rounded-lg font-medium"
       role="alert"
       v-if="statusCode === 201"
     >
       Employee Added Successfully
     </div>
   </div>
-
 </div>
 </template>
 
 <style scoped>
 .heading{
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
+  justify-content: center; 
+  align-items: center; 
   height: 10vh;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;

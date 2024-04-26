@@ -11,6 +11,14 @@ onMounted(() => {
 
 <template>
   <div class="shadow-md pb-6">
+    <div class="heading">
+        <p>
+          Edit Employee Details
+        </p>
+      </div>
+
+      <div class="my-container mx-32px 25px px-4 py-8">
+
     <div
       class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg font-medium"
       role="alert"
@@ -19,11 +27,12 @@ onMounted(() => {
       Oops! Error encountered: {{ error.message }}
     </div>
     <table class="table-auto w-full" v-else-if="employeeData">
-      <thead class="bg-slate-600 text-white">
+      <thead class="bg-slate-600 text-white text-center">
         <tr>
           <th class="py-1">ID</th>
           <th class="py-1">Name</th>
           <th class="py-1">Email</th>
+          <th class="py-1">Phone No.</th>
         </tr>
       </thead>
       <tbody class="text-center">
@@ -31,6 +40,7 @@ onMounted(() => {
           <td class="py-2">{{ employeeData.id }}</td>
           <td class="py-2">{{ employeeData.empname }}</td>
           <td class="py-2">{{ employeeData.email }}</td>
+          <td class="py-2">{{ employeeData.empphone }}</td>
         </tr>
       </tbody>
     </table>
@@ -38,16 +48,33 @@ onMounted(() => {
       <RouterLink :to="{ name: 'list' }">
         <button
           type="button"
-          class="bg-emerald-700 text-white font-medium p-2 rounded-md hover:bg-emerald-800"
+          class="bg-blue-600 text-white font-medium p-2 rounded-md hover:bg-blue-600"
         >
           Back to Home
         </button>
       </RouterLink>
     </div>
   </div>
+</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.heading{
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 10vh;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+}
+.my-container {
+  max-width: 5xl;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: #ebe9e9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+} 
+</style>
  
  
  

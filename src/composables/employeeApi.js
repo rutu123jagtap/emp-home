@@ -14,10 +14,10 @@ export default function useEmployee() {
     try {
       const admin = JSON.parse(localStorage.getItem('user.info'));
       const res = await axios(`${url}?is_deleted=0&added_by=${admin.id}`)
-      // console.log(res.data)
       employeeData.value = res.data
     } catch (err) {
       // console.log(err)
+       
       error.value = err
     }
   }
@@ -33,7 +33,7 @@ export default function useEmployee() {
     }
   }
 
-  // Post/Add Employee Data
+  // Post Employee Data
   const createEmployee = async (formData) => {
     formData.is_deleted = 0;
     const admin = JSON.parse(localStorage.getItem('user.info'));
@@ -52,7 +52,6 @@ export default function useEmployee() {
         data: JSON.stringify(formData)
       }
       const res = await axios(config)
-      // console.log(res)
       employeeData.value = res.data
       statusCode.value = res.status
     } catch (err) {
@@ -100,7 +99,6 @@ export default function useEmployee() {
         }
       }
       const res = await axios(config)
-      // console.log(res)
       statusCode.value = res.status
     } catch (err) {
       delError.value = err

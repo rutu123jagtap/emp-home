@@ -81,18 +81,34 @@ function handleUpdateEmployeeForm() {
           />
         </div>
       </div>
+      <div class="flex items-center m-6">
+        <div class="w-1/5">
+          <label class="font-medium" for="empphone"> Phone No. : </label>
+        </div>
+        <div class="w-4/5">
+          <input
+            type="text"
+            id="empphone"
+            v-model.trim="employeeData.empphone"
+            @input="validatePhoneNumber"
+            class="border-2 border-gray-200 w-full py-2 px-4"
+            placeholder="write employee's phone"
+            required
+          />
+        </div>
+      </div>
 
       <div class="m-8 flex justify-center">
         <button
           type="submit"
-          class="bg-purple-700 text-white font-medium py-2 px-6 rounded-md hover:bg-purple-800 mr-5"
+          class="bg-blue-600 text-white font-medium py-2 px-6 rounded-md hover:bg-blue-600 mr-5"
         >
           Save
         </button>
         <RouterLink :to="{ name: 'list' }">
           <button
             type="button"
-            class="bg-emerald-700 text-white font-medium p-2 rounded-md hover:bg-emerald-800"
+            class="bg-blue-600 text-white font-medium p-2 rounded-md hover:bg-blue-600"
           >
             Back to Home
           </button>
@@ -114,8 +130,8 @@ function handleUpdateEmployeeForm() {
 <style scoped>
 .heading{
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
+  justify-content: center;
+  align-items: center; 
   height: 10vh;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;

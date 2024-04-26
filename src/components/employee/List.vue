@@ -72,7 +72,7 @@ onMounted(getAllEmployee);
     </div>
     
     <table class="table-auto w-full rounded-lg" v-else-if="employeeData">
-      <thead class="bg-slate-600 text-white text-center">
+      <thead class="bg-slate-600 text-white text-center ">
         <tr>
           
           <th class="py-1">No</th>
@@ -127,8 +127,8 @@ onMounted(getAllEmployee);
 <style scoped>
 .heading{
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
+  justify-content: center;
+  align-items: center; 
   height: 10vh;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
@@ -141,4 +141,8 @@ onMounted(getAllEmployee);
   background-color: #ebe9e9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 } 
+
+
 </style>
+
+ 

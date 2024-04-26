@@ -4,7 +4,7 @@
 <template>
   
   <h1 className="text-3xl font-bold underline">
-      NotFound
+      Page not Found!!!
     </h1>
 </template>
 

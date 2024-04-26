@@ -8,6 +8,8 @@ import SignUp from '../components/employee/SignUp.vue';
 import Login from '../components/employee/Login.vue';
 
 
+
+
 const routes = [
     {
       path: '/',
@@ -57,5 +59,14 @@ const routes = [
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: routes
   })
+
+//   router.beforeEach((to, from, next) => {
+//     const isAuthenticated = !!localStorage.getItem('userData')
+//     if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+//         next('/login')
+//     } else {
+//         next()
+//     }
+// })
   
   export default router

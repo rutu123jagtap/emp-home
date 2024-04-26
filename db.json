@@ -1,37 +1,85 @@
 {
   "employee": [
     {
-      "id": "2c04",
+      "id": "2e1f",
+      "empname": "fxb",
+      "email": "a@gmail.com",
+      "eid": "6t",
+      "empphone": "900",
+      "is_deleted": 0,
+      "added_by": "9728",
+      "admin_name": "b",
+      "created_at": "2024-04-25T14:59:14.756Z",
+      "updated_by": "b",
+      "updated_at": "2024-04-26T07:19:39.105Z"
+    },
+    {
+      "id": "cec2",
       "empname": "Ru",
       "email": "jrutu522@gmail.com",
       "eid": "4567",
       "empphone": "9096966366",
       "is_deleted": 0,
-      "added_by": "9728",
-      "admin_name": "b",
-      "created_at": "2024-04-25T10:21:55.043Z"
+      "added_by": "de5a",
+      "admin_name": "rutuja",
+      "created_at": "2024-04-26T08:40:20.740Z"
     },
     {
-      "id": "f036",
-      "empname": "fxb",
-      "email": "a@gmail.com",
-      "eid": "sdfx",
-      "empphone": "9096967890",
+      "id": "9048",
+      "empname": "Rohit",
+      "email": "rohit@gmail.com",
+      "eid": "45",
+      "empphone": "9809867890",
       "is_deleted": 0,
-      "added_by": "9728",
-      "admin_name": "b",
-      "created_at": "2024-04-25T14:59:05.725Z"
+      "added_by": "83cf",
+      "admin_name": "Vijay",
+      "created_at": "2024-04-26T08:46:06.875Z",
+      "updated_by": "Vijay",
+      "updated_at": "2024-04-26T09:48:02.747Z"
     },
     {
-      "id": "2e1f",
-      "empname": "fxb",
-      "email": "a@gmail.com",
-      "eid": "6t",
-      "empphone": "9096967890",
+      "id": "a92b",
+      "empname": "gopu",
+      "email": "gopu@gmail.com",
+      "eid": "999",
+      "empphone": "9096966366",
       "is_deleted": 0,
-      "added_by": "9728",
-      "admin_name": "b",
-      "created_at": "2024-04-25T14:59:14.756Z"
+      "added_by": "83cf",
+      "admin_name": "Vijay",
+      "created_at": "2024-04-26T08:47:04.939Z"
+    },
+    {
+      "id": "71f3",
+      "empname": "Ru",
+      "email": "jrutu522@gmail.com",
+      "empphone": "9096966366",
+      "eid": "4567",
+      "is_deleted": 0,
+      "added_by": "83cf",
+      "admin_name": "Vijay",
+      "created_at": "2024-04-26T09:48:20.058Z"
+    },
+    {
+      "id": "c4d5",
+      "empname": "Ru",
+      "email": "jrutu522@gmail.com",
+      "eid": "4567",
+      "empphone": "9096966366",
+      "is_deleted": 0,
+      "added_by": "83cf",
+      "admin_name": "Vijay",
+      "created_at": "2024-04-26T10:23:28.827Z"
+    },
+    {
+      "id": "5c7f",
+      "empname": "Ru",
+      "email": "l@g",
+      "eid": "4567",
+      "empphone": "9096966366",
+      "is_deleted": 0,
+      "added_by": "83cf",
+      "admin_name": "Vijay",
+      "created_at": "2024-04-26T10:24:04.363Z"
     }
   ]
 }
