@@ -21,15 +21,16 @@
                 <p class="error-message" v-if="errorMessageVisibility">Incorrect email or password.</p>
                 <p>Don't have an account? <router-link to="/sign-up" class="signup-link">Sign Up</router-link>
                 </p>
+                <!-- <p><router-link to="/forgot-password" class="forgot-password-link">Forgot Password?</router-link></p> -->
             </div>
         </div>
     </div>
 </div>
 </template>
 
-    
 <script>
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
 
 export default {
     name: 'Login',
@@ -72,18 +73,22 @@ export default {
             try {
                 const result = await axios.get(`http://localhost:3030/users`);
 
-                if (result.status == 200 && result.data.length > 0) {
-                    const user = result.data.find(user => user.email === this.email && user.password === this.password);
+                if (result.status === 200 && result.data.length > 0) {
+                    const user = result.data.find(user => user.email === this.email);
                     if (user) {
-                        localStorage.setItem("user.info", JSON.stringify(user));
-                        this.$router.push({
-                            name: 'list'
-                        });
+                        const passwordMatch = await bcrypt.compare(this.password, user.password);
+                        if (passwordMatch) {
+                            localStorage.setItem("user.info", JSON.stringify(user));
+                            this.$router.push({
+                                name: 'list'
+                            });
+                        } else {
+                            this.errorMessageVisibility = true;
+                        }
                     } else {
-                        this.errorMessageVisibility = true;
+                        this.errorMessageVisibility = true; // User not found
                     }
                 }
-
             } catch (error) {
                 this.errorMessageVisibility = true;
             }
@@ -100,7 +105,6 @@ export default {
 };
 </script>
 
-    
 <style scoped>
 .logo {
     width: 80px;

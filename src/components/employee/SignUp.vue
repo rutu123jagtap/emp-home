@@ -32,6 +32,7 @@
 
 <script>
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
 
 export default {
     name: 'SignUp',
@@ -72,10 +73,11 @@ export default {
 
             if (this.isEmailValid && this.isPasswordValid) {
                 try {
+                    const hashedPassword = await bcrypt.hash(this.password, 10);
                     const response = await axios.post('http://localhost:3030/users', {
                         name: this.name,
                         email: this.email,
-                        password: this.password
+                        password: hashedPassword
                     });
                     if (response.status === 201) {
                         localStorage.setItem('user.info', JSON.stringify(response.data));
