@@ -1,6 +1,7 @@
 <template>
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="col-lg-4">
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-lg-4">
+        <div class="my-container mx-32px 25px px-4 py-8">
             <div class="d-flex flex-column align-items-center mb-4">
                 <img class="logo mb-4" src="C:\Users\rutuja.jagtap\vue3-emp\src\assets\logo.jpg" />
                 <h1 class="login-title mb-4">Login</h1>
@@ -23,102 +24,110 @@
             </div>
         </div>
     </div>
-    </template>
-    
-    <script>
-    import axios from 'axios';
-    
-    export default {
-        name: 'Login',
-        data() {
-            return {
-                email: '',
-                password: '',
-                emailError: '',
-                passwordError: '',
-                errorMessageVisibility: false
-            };
-        },
-        methods: {
-            validateEmail(email) {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(String(email).toLowerCase());
-            },
-            validatePassword(password) {
-                return password.length >= 8;
-            },
-            async login() {
-                this.emailError = '';
-                this.passwordError = '';
-                this.errorMessageVisibility = false; 
-    
-                if (!this.validateEmail(this.email)) {
-                    this.emailError = 'Invalid email';
-                    this.$forceUpdate();
-                }
-    
-                if (!this.validatePassword(this.password)) {
-                    this.passwordError = 'Password must be at least 8 characters';
-                    this.$forceUpdate();
-                }
-    
-                if (this.emailError || this.passwordError) {
-                    return;
-                }
-    
-                try {
-                    const result = await axios.get(`http://localhost:3030/users`);
-    
-                    if (result.status == 200 && result.data.length > 0) {
-                        const user = result.data.find(user => user.email === this.email && user.password === this.password);
-                        if (user) {
-                            localStorage.setItem("user.info", JSON.stringify(user));
-                            this.$router.push({
-                                name: 'list'
-                            });
-                        } else {
-                            this.errorMessageVisibility = true;
-                        }
-                    }
-    
-                } catch (error) {
-                    this.errorMessageVisibility = true;
-                }
-            }
-        },
-        mounted() {
-            let user = localStorage.getItem('user.info');
-            if (user) {
-                this.$router.push({
-                    name: 'list'
-                });
-            }
-        }
-    };
-    </script>
-    
-    <style scoped>
-    .logo {
-        width: 80px;
-    }
-    
-    .login-title {
-        font-size: 28px;
-        color: #333;
-    }
-    
-    .login {
-        text-align: center;
-    }
-    
-    .error-message {
-        color: red;
-    }
-    
-    .signup-link {
-        color: #007bff;
-    }
-    </style>
-    
+</div>
+</template>
 
     
+<script>
+import axios from 'axios';
+
+export default {
+    name: 'Login',
+    data() {
+        return {
+            email: '',
+            password: '',
+            emailError: '',
+            passwordError: '',
+            errorMessageVisibility: false
+        };
+    },
+    methods: {
+        validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        },
+        validatePassword(password) {
+            return password.length >= 8;
+        },
+        async login() {
+            this.emailError = '';
+            this.passwordError = '';
+            this.errorMessageVisibility = false;
+
+            if (!this.validateEmail(this.email)) {
+                this.emailError = 'Invalid email';
+                this.$forceUpdate();
+            }
+
+            if (!this.validatePassword(this.password)) {
+                this.passwordError = 'Password must be at least 8 characters';
+                this.$forceUpdate();
+            }
+
+            if (this.emailError || this.passwordError) {
+                return;
+            }
+
+            try {
+                const result = await axios.get(`http://localhost:3030/users`);
+
+                if (result.status == 200 && result.data.length > 0) {
+                    const user = result.data.find(user => user.email === this.email && user.password === this.password);
+                    if (user) {
+                        localStorage.setItem("user.info", JSON.stringify(user));
+                        this.$router.push({
+                            name: 'list'
+                        });
+                    } else {
+                        this.errorMessageVisibility = true;
+                    }
+                }
+
+            } catch (error) {
+                this.errorMessageVisibility = true;
+            }
+        }
+    },
+    mounted() {
+        let user = localStorage.getItem('user.info');
+        if (user) {
+            this.$router.push({
+                name: 'list'
+            });
+        }
+    }
+};
+</script>
+
+    
+<style scoped>
+.logo {
+    width: 80px;
+}
+
+.login-title {
+    font-size: 28px;
+    color: #333;
+}
+
+.login {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+}
+
+.signup-link {
+    color: #007bff;
+}
+
+.my-container {
+    max-width: 5xl;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    background-color: #ebe9e9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+</style>

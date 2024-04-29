@@ -7,8 +7,12 @@ export default function useEmployee() {
   const error = ref(null)
   const statusCode = ref(null)
   const delError = ref(null)
+  const isLoading = ref(false)
+  
+
   // Get All Employee Data
   const getAllEmployee = async () => {
+    isLoading.value = true
     employeeData.value = []
     error.value = null
     try {
@@ -16,13 +20,13 @@ export default function useEmployee() {
       const res = await axios(`${url}?is_deleted=0&added_by=${admin.id}`)
       employeeData.value = res.data
     } catch (err) {
-      // console.log(err)
-       
       error.value = err
     }
+    isLoading.value = false
   }
   // Get Single Employee Data
   const getSingleEmployee = async (id) => {
+    isLoading.value = true
     employeeData.value = []
     error.value = null
     try {
@@ -31,10 +35,14 @@ export default function useEmployee() {
     } catch (err) {
       error.value = err
     }
+    isLoading.value = false
   }
+
+
 
   // Post Employee Data
   const createEmployee = async (formData) => {
+    isLoading.value = true
     formData.is_deleted = 0;
     const admin = JSON.parse(localStorage.getItem('user.info'));
     formData.added_by = admin.id;
@@ -56,8 +64,9 @@ export default function useEmployee() {
       statusCode.value = res.status
     } catch (err) {
       error.value = err
-    }
   }
+  isLoading.value = false
+}
 
   // Update Employee Data
   const updateEmployee = async (id, data) => {
@@ -109,6 +118,7 @@ export default function useEmployee() {
     error,
     statusCode,
     delError,
+    isLoading,
     getAllEmployee,
     getSingleEmployee,
     createEmployee,

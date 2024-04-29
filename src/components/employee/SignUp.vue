@@ -1,6 +1,8 @@
 <template>
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="col-lg-4">
+        
+        <div class="my-container mx-32px 25px px-4 py-8">
         <div class="d-flex flex-column align-items-center mb-4">
             <img class="logo mb-4" src="C:\Users\rutuja.jagtap\vue3-emp\src\assets\logo.jpg" />
             <h1 class="login-title mb-4">Sign Up</h1>
@@ -24,6 +26,7 @@
             </p>
         </div>
     </div>
+</div>
 </div>
 </template>
 
@@ -117,4 +120,13 @@ export default {
 .login-link {
     color: #007bff;
 }
+
+.my-container {
+  max-width: 5xl;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: #ebe9e9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ 
 </style>

@@ -4,6 +4,7 @@ import useEmployee from "../../composables/employeeApi";
 import { useRoute } from "vue-router";
 const { employeeData, error, statusCode, getSingleEmployee, updateEmployee } =
   useEmployee();
+  
 const { params } = useRoute();
 onMounted(() => {
   getSingleEmployee(params.id);
@@ -15,6 +16,8 @@ function handleUpdateEmployeeForm() {
 </script>
 
 <template>
+  <!-- <div v-if="isLoading" class="loader">Loading...</div> -->
+
   <div class="shadow-md pb-6">
     <!-- <div class="bg-indigo-600 p-4">
       <h1 class="text-3xl font-bold text-center text-white">Edit Employee</h1>
@@ -97,6 +100,23 @@ function handleUpdateEmployeeForm() {
           />
         </div>
       </div>
+      <div class="flex items-center m-6">
+          <div class="w-1/5">
+            <label class="font-medium" for="role"> Role: </label>
+          </div>
+          <div class="w-4/5">
+            <select
+              id="role"
+              v-model="employeeData.role"
+              class="border-2 border-gray-200 w-full py-2 px-4"
+              required
+            >
+              <option value="">Select Role</option>
+              <option value="developer">Web Developer</option>
+              <option value="designer">Web Designer</option>
+            </select>
+          </div>
+        </div>
 
       <div class="m-8 flex justify-center">
         <button
@@ -117,7 +137,7 @@ function handleUpdateEmployeeForm() {
     </form>
 
     <div
-      class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg font-medium"
+      class="p-4 mb-4 text-sm text-green-600 bg-red-100 rounded-lg font-medium"
       role="alert"
       v-if="statusCode === 200"
     >
@@ -143,4 +163,19 @@ function handleUpdateEmployeeForm() {
   background-color: #ebe9e9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 } 
+
+/* .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} */
+
 </style>

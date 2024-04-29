@@ -33,6 +33,7 @@ onMounted(() => {
           <th class="py-1">Name</th>
           <th class="py-1">Email</th>
           <th class="py-1">Phone No.</th>
+          <th class="py-1">Role</th>
         </tr>
       </thead>
       <tbody class="text-center">
@@ -41,6 +42,7 @@ onMounted(() => {
           <td class="py-2">{{ employeeData.empname }}</td>
           <td class="py-2">{{ employeeData.email }}</td>
           <td class="py-2">{{ employeeData.empphone }}</td>
+          <td class="py-2">{{ employeeData.role }}</td>
         </tr>
       </tbody>
     </table>
