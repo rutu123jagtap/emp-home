@@ -11,16 +11,14 @@
   export default {
   setup() {
     const store = useStore();
-
-    // Define the getter function for isLoading
     const isLoading = computed(() => store.getters.isLoading);
 
     return {
-      isLoading, // Return the computed property
+      isLoading, 
     };
   },
 };
-  </script>
+</script>
   
   <style scoped>
   .loader-container {

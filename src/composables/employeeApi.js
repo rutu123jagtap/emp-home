@@ -2,7 +2,6 @@ import { ref } from 'vue'
 import axios from 'axios'
 import store from '../views/store.js';
 
-
 export default function useEmployee() {
   const url = "http://localhost:4000/employee/"
   const employeeData = ref([])
@@ -29,6 +28,8 @@ export default function useEmployee() {
       store.commit('setLoading', false);
     }
   }
+
+
   // Get Single Employee Data
   const getSingleEmployee = async (id) => {
     store.commit('setLoading', true);
@@ -83,7 +84,7 @@ export default function useEmployee() {
           data: JSON.stringify(formData)
       }
       const res = await axios(config)
-      employeeData.value.push(res.data); // Assuming response.data contains the created employee
+      employeeData.value.push(res.data); 
       statusCode.value = res.status;
   } catch (err) {
       error.value = "Error creating employee";
