@@ -8,8 +8,6 @@ import SignUp from '../components/employee/SignUp.vue';
 import Login from '../components/employee/Login.vue';
 
 
-
-
 const routes = [
     {
       path: '/',

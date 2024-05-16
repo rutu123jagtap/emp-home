@@ -1,5 +1,7 @@
 import { ref } from 'vue'
 import axios from 'axios'
+import store from '../views/store.js';
+
 
 export default function useEmployee() {
   const url = "http://localhost:4000/employee/"
@@ -7,12 +9,13 @@ export default function useEmployee() {
   const error = ref(null)
   const statusCode = ref(null)
   const delError = ref(null)
-  const isLoading = ref(false)
+  // const isLoading = ref(false);
   
 
   // Get All Employee Data
   const getAllEmployee = async () => {
-    isLoading.value = true
+    store.commit('setLoading', true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
     employeeData.value = []
     error.value = null
     try {
@@ -21,12 +24,15 @@ export default function useEmployee() {
       employeeData.value = res.data
     } catch (err) {
       error.value = err
+      store.commit('setLoading', false);
+    }finally{
+      store.commit('setLoading', false);
     }
-    isLoading.value = false
   }
   // Get Single Employee Data
   const getSingleEmployee = async (id) => {
-    isLoading.value = true
+    store.commit('setLoading', true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
     employeeData.value = []
     error.value = null
     try {
@@ -34,42 +40,64 @@ export default function useEmployee() {
       employeeData.value = res.data
     } catch (err) {
       error.value = err
+      store.commit('setLoading', false);
     }
-    isLoading.value = false
+    finally{
+      store.commit('setLoading', false);
+    }
+    
   }
 
 
 
   // Post Employee Data
   const createEmployee = async (formData) => {
-    isLoading.value = true
+    store.commit('setLoading', true); 
+    await new Promise(resolve => setTimeout(resolve, 1000));
     formData.is_deleted = 0;
     const admin = JSON.parse(localStorage.getItem('user.info'));
     formData.added_by = admin.id;
     formData.admin_name = admin.name; 
     formData.created_at = new Date().toISOString();
-    employeeData.value = []
-    error.value = null
+
     try {
+      const existingEmployees = await axios.get(`${url}?eid=${formData.eid}`);
+      if (existingEmployees.data.length > 0) {
+          error.value = "Employee with the same ID already exists";
+          store.commit('setLoading', false);
+          return;
+      }
+  } catch (err) {
+      error.value = "Error checking duplicate employee ID";
+      store.commit('setLoading', false);
+      return;
+  }
+
+  try {
       const config = {
-        method: 'POST',
-        url: url,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        data: JSON.stringify(formData)
+          method: 'POST',
+          url: url,
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          data: JSON.stringify(formData)
       }
       const res = await axios(config)
-      employeeData.value = res.data
-      statusCode.value = res.status
-    } catch (err) {
-      error.value = err
+      employeeData.value.push(res.data); // Assuming response.data contains the created employee
+      statusCode.value = res.status;
+  } catch (err) {
+      error.value = "Error creating employee";
+      store.commit('setLoading', false);
   }
-  isLoading.value = false
+  finally{
+    store.commit('setLoading', false);
+  }
 }
 
   // Update Employee Data
   const updateEmployee = async (id, data) => {
+    store.commit('setLoading', true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
     const admin = JSON.parse(localStorage.getItem('user.info'));
     data.updated_by = admin.name;
     data.updated_at = new Date().toISOString();
@@ -89,11 +117,17 @@ export default function useEmployee() {
       statusCode.value = res.status
     } catch (err) {
       error.value = err
+      store.commit('setLoading', false);
+    }
+    finally{
+      store.commit('setLoading', false);
     }
   }
 
   // Delete Employee Data
   const destroyEmployee = async (id) => {
+    store.commit('setLoading', true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
     employeeData.value = []
     error.value = null
     try {
@@ -111,6 +145,10 @@ export default function useEmployee() {
       statusCode.value = res.status
     } catch (err) {
       delError.value = err
+      store.commit('setLoading', false);
+    }
+    finally{
+      store.commit('setLoading', false);
     }
   }
   return {
@@ -118,7 +156,6 @@ export default function useEmployee() {
     error,
     statusCode,
     delError,
-    isLoading,
     getAllEmployee,
     getSingleEmployee,
     createEmployee,

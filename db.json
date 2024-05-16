@@ -1,17 +1,80 @@
 {
   "employee": [
     {
-      "id": "2e1f",
-      "empname": "fxb",
-      "email": "a@gmail.com",
-      "eid": "6t",
-      "empphone": "900",
+      "id": "90bb",
+      "eid": "999",
+      "empname": "Rutuja",
+      "email": "jrutu522@gmail.com",
+      "empphone": "9096966366",
+      "role": "designer",
       "is_deleted": 0,
-      "added_by": "9728",
-      "admin_name": "b",
-      "created_at": "2024-04-25T14:59:14.756Z",
-      "updated_by": "b",
-      "updated_at": "2024-04-26T07:19:39.105Z"
+      "added_by": "55b4",
+      "admin_name": "rituja",
+      "created_at": "2024-05-13T10:52:13.450Z"
+    },
+    {
+      "id": "d5b5",
+      "eid": "4567",
+      "empname": "Ruuuuuuuuuuuuuu",
+      "email": "jrutu522@gmail.com",
+      "empphone": "9809867890",
+      "role": "developer",
+      "is_deleted": 0,
+      "added_by": "cca7",
+      "admin_name": "q",
+      "created_at": "2024-05-14T07:56:04.139Z",
+      "updated_by": "q",
+      "updated_at": "2024-05-14T08:01:59.810Z"
+    },
+    {
+      "id": "931d",
+      "eid": "9999",
+      "empname": "Sonnnnnnn",
+      "email": "l@g",
+      "empphone": "9809867890",
+      "role": "designer",
+      "is_deleted": 1,
+      "added_by": "cca7",
+      "admin_name": "q",
+      "created_at": "2024-05-14T08:02:34.634Z",
+      "updated_by": "q",
+      "updated_at": "2024-05-14T08:03:19.266Z"
+    },
+    {
+      "id": "d1d2",
+      "eid": "9090",
+      "empname": "Ru",
+      "email": "jrutu522@gmail.com",
+      "empphone": "9096966366",
+      "role": "developer",
+      "is_deleted": 0,
+      "added_by": "9c50",
+      "admin_name": "q",
+      "created_at": "2024-05-14T09:02:07.797Z"
+    },
+    {
+      "id": "cb94",
+      "eid": "9099",
+      "empname": "Rutuja",
+      "email": "l@g",
+      "empphone": "9076567904",
+      "role": "designer",
+      "is_deleted": 0,
+      "added_by": "9c50",
+      "admin_name": "q",
+      "created_at": "2024-05-14T09:02:31.192Z"
+    },
+    {
+      "id": "2a34",
+      "eid": "9990",
+      "empname": "Rutuja",
+      "email": "gopu@gmail.com",
+      "empphone": "9076567903",
+      "role": "designer",
+      "is_deleted": 0,
+      "added_by": "9c50",
+      "admin_name": "q",
+      "created_at": "2024-05-14T09:02:57.691Z"
     }
   ]
 }

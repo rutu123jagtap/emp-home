@@ -9,6 +9,7 @@ import { onMounted } from "vue";
 import { RouterLink } from "vue-router";
 import useEmployee from "../../composables/employeeApi";
 import router from "../../router";
+import { useStore } from "vuex";
 // const router = useRouter()
  
 const {
@@ -19,6 +20,7 @@ const {
   getAllEmployee,
   destroyEmployee,
 } = useEmployee();
+const store = useStore();
  
  
 const deleteEmployee = async (id) => {
@@ -42,29 +44,13 @@ onMounted(getAllEmployee);
  
 <template>
   <div>
-   
-      <!-- <div class="col-span-6 md:col-span-8">
-        <h1 class="text-3xl font-bold text-center mt-3 text-white">
-          Employee List
-        </h1>
-      </div> -->
-      <!-- <div class="text-right">
-        <RouterLink :to="{ name: 'add' }">
-          <button
-            class="text-white text-md bg-green-700 hover:bg-green-800 font-medium rounded-lg p-2 px-6"
-          >
-            <UserPlusIcon /> Add
-          </button>
-        </RouterLink>
-      </div> -->
- 
       <div class="heading">
         <p>
           Employee Details
         </p>
       </div>
     <div class="my-container mx-32px 25px px-4 py-8">
-      <div v-if="isLoading" class="loader"></div>
+      <!-- <div v-if="isLoading" class="loader"></div> -->
     <div
       class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg font-medium"
       role="alert"
@@ -146,17 +132,17 @@ onMounted(getAllEmployee);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.loader {
+/* .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 2s linear infinite; 
   animation: spin 2s linear infinite;
 }
 
-/* Safari */
+
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -165,7 +151,7 @@ onMounted(getAllEmployee);
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
+} */
 
  
  

@@ -2,8 +2,10 @@
 import { onMounted } from "vue";
 import useEmployee from "../../composables/employeeApi";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 const { employeeData, error, statusCode, getSingleEmployee, updateEmployee } =
   useEmployee();
+  const store = useStore();
   
 const { params } = useRoute();
 onMounted(() => {
@@ -24,7 +26,7 @@ function handleUpdateEmployeeForm() {
     </div> -->
     <div class="heading">
         <p>
-          Add Employee
+          Edit Employee Details
         </p>
       </div>
 
@@ -41,21 +43,21 @@ function handleUpdateEmployeeForm() {
       class="w-full"
       v-else-if="employeeData"
     >
-      <div class="flex items-center m-6">
-        <div class="w-1/5">
-          <label class="font-medium" for="empid"> ID : </label>
-        </div>
-        <div class="w-4/5">
-          <input
-            type="text"
-            id="empid"
-            class="border-2 border-gray-200 w-full py-2 px-4"
-            readonly
-            disabled
-            v-model.trim="employeeData.id"
-          />
-        </div>
-      </div>
+    <div class="flex items-center m-6">
+  <div class="w-1/5">
+    <label class="font-medium" for="empid"> ID : </label>
+  </div>
+  <div class="w-4/5">
+    <input
+      type="text"
+      eid="empid"
+      class="border-2 border-gray-200 w-full py-2 px-4"
+      readonly
+      disabled
+      :value="employeeData.eid" 
+    />
+  </div>
+</div>
       <div class="flex items-center m-6">
         <div class="w-1/5">
           <label class="font-medium" for="empname"> Name : </label>
@@ -137,7 +139,7 @@ function handleUpdateEmployeeForm() {
     </form>
 
     <div
-      class="p-4 mb-4 text-sm text-green-600 bg-red-100 rounded-lg font-medium"
+      class="p-4 mb-4 text-sm text-green-600 bg-green-50 rounded-lg font-medium"
       role="alert"
       v-if="statusCode === 200"
     >

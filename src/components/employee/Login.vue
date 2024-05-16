@@ -31,6 +31,8 @@
 <script>
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
+import { useStore } from "vuex";
+
 
 export default {
     name: 'Login',
@@ -52,6 +54,7 @@ export default {
             return password.length >= 8;
         },
         async login() {
+            const store = useStore();
             this.emailError = '';
             this.passwordError = '';
             this.errorMessageVisibility = false;
@@ -71,7 +74,10 @@ export default {
             }
 
             try {
+                
                 const result = await axios.get(`http://localhost:3030/users`);
+
+                // localStorage.setItem("load", false );
 
                 if (result.status === 200 && result.data.length > 0) {
                     const user = result.data.find(user => user.email === this.email);
